@@ -419,3 +419,43 @@ footer .column > a:hover{
         grid-template-columns: 1fr 150px;
     }
 }
+
+@media screen and (max-width: 1200px) {
+    .projects{
+        font-size: 32px;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .projects .projects-items{
+        gap: 22px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .projects .projects-items .item{
+        width: 48%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .projects{
+        padding: 60px 42px;
+    }
+
+    .projects .projects-items{
+        gap: 18px;
+    }
+
+}
+
+@media screen and (max-width: 576px) {
+    .projects .header button{
+        font-size: 12px;
+        padding: 8px 14px;
+    }
+
+    .projects .projects-items .item{
+        width: 80%;
+    }
+}
