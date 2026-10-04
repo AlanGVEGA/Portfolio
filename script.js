@@ -1,25 +1,19 @@
-function scrollToElement(elementSelector, instance = 0) {
-    const elements = document.querySelectorAll(elementSelector)
-    if (elements.length>instance) {
-        elements[instance].scrollIntoView({behavior: 'smooth'});
-    }
-}
-
-const link1 = document.getElementById("link1")
-const link2 = document.getElementById("link2")
-const link3 = document.getElementById("link3")
-const link4 = document.getElementById("link4")
-
-
-link1.addEventListener('click', () => {
-    scrollToElement(".header");
+const menu = document.getElementById('menu');
+const navigation = document.getElementById('navigation');
+menu.addEventListener('click', () => {
+  const open = menu.getAttribute('aria-expanded') !== 'true';
+  menu.setAttribute('aria-expanded', String(open));
+  navigation.classList.toggle('open', open);
 });
-link1.addEventListener('click', () => {
-    scrollToElement(".header", 1);
+navigation.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+  menu.setAttribute('aria-expanded', 'false');
+  navigation.classList.remove('open');
+}));
+document.addEventListener('keydown', event => {
+  if (event.key === 'Escape' && menu.getAttribute('aria-expanded') === 'true') {
+    menu.setAttribute('aria-expanded', 'false');
+    navigation.classList.remove('open');
+    menu.focus();
+  }
 });
-link1.addEventListener('click', () => {
-    scrollToElement(".column");
-});
-link1.addEventListener('click', () => {
-    scrollToElement("column", 1);
-});
+document.getElementById('year').textContent = new Date().getFullYear();
